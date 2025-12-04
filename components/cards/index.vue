@@ -53,7 +53,7 @@
 
           <v-card-actions class="mt-2">
             <v-spacer></v-spacer>
-            <v-btn variant="outlined" color="red">Clear</v-btn>
+            <v-btn variant="outlined" color="red" @click="clear">Clear</v-btn>
 
             <v-btn variant="flat" color="#3770e8" @click="submit">
               Translate
@@ -121,7 +121,7 @@ const selectedLang = ref("Select");
 const selectedModel = ref("chatgpt");
 const sourceText = ref("");
 const translatedText = ref("");
-const provider = ref("");
+const provider = ref("Select");
 const loading = ref(false);
 
 // Stats
@@ -131,6 +131,10 @@ const cost = ref(0);
 
 const input = ref("");
 const output = ref("");
+
+const clear = () => {
+  sourceText.value = "";
+};
 
 const submit = async () => {
   loading.value = true;
